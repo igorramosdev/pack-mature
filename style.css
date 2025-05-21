@@ -121,7 +121,49 @@ p {
 
 .ebook-mockup {
   max-width: 500px;
-  margin: 2rem auto;
+  margin: 2rem auto 1rem;
+}
+
+/* Key Benefits Icons Section */
+.key-benefits {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 1.5rem auto;
+  max-width: 800px;
+}
+
+.benefit-icon-item {
+  text-align: center;
+  flex: 1;
+  min-width: 140px;
+  max-width: 180px;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.benefit-icon-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #e74c3c, #f39c12);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.benefit-icon-item p {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0;
 }
 
 /* CTA Button */
@@ -200,6 +242,58 @@ p {
   height: 6px;
   background: linear-gradient(90deg, #e74c3c, #f39c12, #2ecc71, #3498db, #9b59b6);
   opacity: 0.7;
+}
+
+/* Who Should Buy Section */
+.who-should-buy {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.who-should-buy h3 {
+  color: #f39c12;
+  margin-bottom: 2rem;
+}
+
+.target-audience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.target-audience-item {
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.target-audience-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  border-color: rgba(243, 156, 18, 0.3);
+}
+
+.audience-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.target-audience-item h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  color: #3498db;
+}
+
+.target-audience-item p {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
 }
 
 .benefits-intro {
@@ -729,6 +823,24 @@ p {
   font-size: 0.9rem;
   opacity: 0.9;
   font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+}
+
+.lock-icon {
+  font-size: 1rem;
+  animation: subtle-bounce 2s infinite;
+}
+
+@keyframes subtle-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
 }
 
 .payment-methods {
@@ -1053,6 +1165,44 @@ footer {
   
   h3 {
     font-size: 1.6rem;
+  }
+  
+  .key-benefits {
+    gap: 1rem;
+  }
+  
+  .benefit-icon-item {
+    min-width: 120px;
+    padding: 0.8rem;
+  }
+  
+  .benefit-icon {
+    font-size: 1.8rem;
+  }
+  
+  .benefit-icon-item p {
+    font-size: 0.8rem;
+  }
+  
+  .target-audience-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  
+  .target-audience-item {
+    padding: 1.2rem;
+  }
+  
+  .audience-icon {
+    font-size: 2rem;
+  }
+  
+  .target-audience-item h4 {
+    font-size: 1.1rem;
+  }
+  
+  .target-audience-item p {
+    font-size: 0.85rem;
   }
   
   .countdown-item {
