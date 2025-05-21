@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupOrderBumpsInteraction();
   setupScrollProgress();
   setupHoverEffects();
+  setupTestimonialsSlider();
   preventHorizontalScroll();
 });
 
@@ -240,6 +241,59 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
+
+// Testimonials slider functionality
+function setupTestimonialsSlider() {
+  const slides = document.querySelectorAll('.testimonial-slide');
+  const dots = document.querySelectorAll('.dot');
+  let currentSlide = 0;
+  let slideInterval;
+
+  // Function to show a specific slide
+  function showSlide(index) {
+    // Remove active class from all slides and dots
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+    
+    // Add active class to current slide and dot
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
+    
+    currentSlide = index;
+  }
+
+  // Initialize dot click handlers
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      clearInterval(slideInterval);
+      showSlide(index);
+      startSlideInterval();
+    });
+  });
+
+  // Auto-rotate slides
+  function startSlideInterval() {
+    slideInterval = setInterval(() => {
+      let nextSlide = (currentSlide + 1) % slides.length;
+      showSlide(nextSlide);
+    }, 5000); // Change slide every 5 seconds
+  }
+
+  // Start the slider
+  startSlideInterval();
+
+  // Pause on hover, resume on mouse leave
+  const sliderContainer = document.querySelector('.testimonials-slider-container');
+  if (sliderContainer) {
+    sliderContainer.addEventListener('mouseenter', () => {
+      clearInterval(slideInterval);
+    });
+    
+    sliderContainer.addEventListener('mouseleave', () => {
+      startSlideInterval();
+    });
+  }
+}
 
 // Prevent horizontal scroll
 function preventHorizontalScroll() {
