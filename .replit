@@ -9,6 +9,10 @@ channel = "stable-23_11"
 publicDir = "/"
 deploymentTarget = "static"
 
+[[deployment.rewrites]]
+from = "/*"
+to = "/index.html"
+
 [workflows]
 runButton = "Run"
 
