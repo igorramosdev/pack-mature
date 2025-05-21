@@ -10,6 +10,7 @@ html {
   height: 100%;
   width: 100%;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -17,6 +18,9 @@ body {
   background-color: #0f0f16;
   color: #f1f1f1;
   line-height: 1.6;
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
 }
 
 .container {
@@ -738,18 +742,82 @@ footer {
   left: 20px;
   background-color: rgba(39, 55, 70, 0.95);
   color: white;
-  padding: 15px 20px;
+  padding: 12px 15px;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   z-index: 1000;
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  max-width: 320px;
+  border-left: 3px solid #e74c3c;
 }
 
 .purchase-popup.show {
   opacity: 1;
   transform: translateY(0);
+  animation: pulse-notification 2s infinite;
+}
+
+@keyframes pulse-notification {
+  0% {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 5px 20px rgba(231, 76, 60, 0.5);
+  }
+  100% {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.popup-icon {
+  font-size: 24px;
+  margin-right: 10px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.popup-content {
+  flex: 1;
+}
+
+.popup-content p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.popup-content #buyerName {
+  font-weight: 700;
+  color: #f39c12;
+}
+
+.popup-timer {
+  height: 3px;
+  background-color: #e74c3c;
+  width: 100%;
+  margin-top: 8px;
+  animation: timer 5s linear forwards;
+}
+
+@keyframes timer {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
 }
 
 /* Scroll Progress Bar */
@@ -766,6 +834,11 @@ footer {
 
 /* Responsive Styles */
 @media (max-width: 992px) {
+  .container {
+    width: 95%;
+    padding: 1.5rem 0;
+  }
+  
   .purchase-columns {
     flex-direction: column;
   }
@@ -782,6 +855,10 @@ footer {
   .bump-item.featured:hover {
     transform: translateY(-10px);
   }
+  
+  .bumps-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
@@ -795,6 +872,13 @@ footer {
   
   .countdown-timer {
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .countdown-item {
+    flex: 0 0 calc(50% - 0.5rem);
+    margin-bottom: 0.5rem;
   }
   
   .purchase-button {
@@ -819,12 +903,29 @@ footer {
     margin-right: 0;
     margin-bottom: 1rem;
   }
+  
+  .notification-bar p {
+    font-size: 0.9rem;
+  }
+  
+  .bumps-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .benefits li {
+    padding-right: 10px;
+  }
 }
 
 @media (max-width: 576px) {
+  .container {
+    width: 92%;
+    padding: 1rem 0;
+  }
+  
   .notification-bar {
     padding: 0.5rem;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
   
   h1 {
@@ -833,6 +934,10 @@ footer {
   
   h2 {
     font-size: 1.1rem;
+  }
+  
+  h3 {
+    font-size: 1.6rem;
   }
   
   .countdown-item {
@@ -848,8 +953,16 @@ footer {
     font-size: 0.7rem;
   }
   
-  .bumps-container {
-    grid-template-columns: 1fr;
+  .benefits li {
+    font-size: 0.95rem;
+    padding-left: 2rem;
+    padding-right: 5px;
+  }
+  
+  .benefits li:before {
+    width: 22px;
+    height: 22px;
+    font-size: 0.8rem;
   }
   
   .btn-text-main {
@@ -858,6 +971,13 @@ footer {
   
   .payment-icons {
     flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+  
+  .payment-icons span {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.6rem;
   }
   
   .purchase-section {
@@ -872,5 +992,69 @@ footer {
     font-size: 3rem;
     top: -15px;
     left: 10px;
+  }
+  
+  .purchase-popup {
+    max-width: 280px;
+    left: 10px;
+    bottom: 10px;
+    padding: 10px 12px;
+  }
+  
+  .popup-icon {
+    font-size: 20px;
+  }
+  
+  .popup-content p {
+    font-size: 12px;
+  }
+  
+  .faq-question h4 {
+    font-size: 1.1rem;
+  }
+}
+
+/* Fix for extreme small screens */
+@media (max-width: 360px) {
+  h1 {
+    font-size: 1.6rem;
+  }
+  
+  h2 {
+    font-size: 1rem;
+  }
+  
+  .countdown-timer {
+    margin: 0.5rem 0;
+  }
+  
+  .countdown-item {
+    min-width: 55px;
+    padding: 0.5rem;
+  }
+  
+  .countdown-item span:first-child {
+    font-size: 1.2rem;
+  }
+  
+  .benefits li {
+    font-size: 0.9rem;
+    padding-left: 1.8rem;
+  }
+  
+  .bump-item {
+    padding: 1.5rem 1rem;
+  }
+  
+  .purchase-button {
+    padding: 0.8rem 1.5rem;
+  }
+  
+  .btn-text-main {
+    font-size: 1rem;
+  }
+  
+  .btn-text-sub {
+    font-size: 0.8rem;
   }
 }

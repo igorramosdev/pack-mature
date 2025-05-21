@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupOrderBumpsInteraction();
   setupScrollProgress();
   setupHoverEffects();
+  preventHorizontalScroll();
 });
 
 // Setup interactive effects for order bumps
@@ -154,29 +155,51 @@ function setupPurchaseNotifications() {
   const nameElement = document.getElementById('buyerName');
   const cityElement = document.getElementById('buyerCity');
   
-  // Common American names
+  // Expanded list of common American names
   const names = [
     'John', 'Michael', 'David', 'James', 'Robert', 'William', 'Thomas', 
     'Charles', 'Joseph', 'Richard', 'Daniel', 'Matthew', 'Anthony', 'Mark', 
-    'Steven', 'Andrew', 'Brian', 'Kevin', 'Jason', 'Ryan'
+    'Steven', 'Andrew', 'Brian', 'Kevin', 'Jason', 'Ryan', 'Christopher',
+    'Justin', 'Scott', 'Brandon', 'Benjamin', 'Samuel', 'Gregory', 'Alexander',
+    'Patrick', 'Jonathan', 'Tyler', 'Nicholas', 'Nathan', 'Jeffrey', 'Aaron',
+    'Eric', 'Stephen', 'Kyle', 'Jose', 'Adam', 'Timothy', 'Henry', 'Nathan',
+    'Zachary', 'Derek', 'Ethan', 'Christian', 'Jeremy', 'Peter', 'Sean'
   ];
   
-  // Common US cities
+  // Expanded list of US cities
   const cities = [
     'New York', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix', 'Philadelphia', 
     'San Antonio', 'San Diego', 'Dallas', 'Austin', 'Seattle', 'Denver', 
     'Boston', 'Las Vegas', 'Portland', 'Miami', 'Atlanta', 'Orlando', 
-    'San Francisco', 'Nashville'
+    'San Francisco', 'Nashville', 'Washington DC', 'Indianapolis', 'Columbus',
+    'Charlotte', 'Detroit', 'Minneapolis', 'Raleigh', 'St. Louis', 'Pittsburgh',
+    'Tampa', 'Cincinnati', 'Cleveland', 'Kansas City', 'Sacramento', 'Salt Lake City',
+    'San Jose', 'Fort Worth', 'Virginia Beach', 'Jacksonville', 'Milwaukee',
+    'Memphis', 'Louisville', 'Tucson', 'Fresno', 'Albuquerque', 'Omaha', 
+    'Oklahoma City', 'Tulsa', 'Arlington'
+  ];
+  
+  // Purchase messages to add variety
+  const messages = [
+    'just purchased the ebook!',
+    'just bought the full package!',
+    'just unlocked all the secrets!',
+    'became a member!',
+    'just got access to the exclusive material!',
+    'invested in his future!',
+    'is discovering the secrets right now!'
   ];
   
   function showNotification() {
     // Get random name and city
     const randomName = names[Math.floor(Math.random() * names.length)];
     const randomCity = cities[Math.floor(Math.random() * cities.length)];
+    const randomMessage = messages[Math.floor(Math.random() * messages.length)];
     
     // Update popup content
     nameElement.textContent = randomName;
     cityElement.textContent = randomCity;
+    document.getElementById('purchaseMessage').textContent = randomMessage;
     
     // Show popup
     popup.classList.add('show');
@@ -187,16 +210,16 @@ function setupPurchaseNotifications() {
     }, 5000);
   }
   
-  // Show first notification after 10 seconds
+  // Show first notification quickly (after 5 seconds)
   setTimeout(() => {
     showNotification();
     
-    // Then show notifications randomly between 30-60 seconds
+    // Then show notifications more frequently (between 15-40 seconds)
     setInterval(() => {
-      const randomDelay = Math.floor(Math.random() * (60 - 30 + 1) + 30) * 1000;
+      const randomDelay = Math.floor(Math.random() * (40 - 15 + 1) + 15) * 1000;
       setTimeout(showNotification, randomDelay);
-    }, 60000); // Check every minute if we should show a notification
-  }, 10000);
+    }, 30000); // Check every 30 seconds if we should show a notification
+  }, 5000);
 }
 
 // Smooth scroll for anchor links
@@ -216,3 +239,22 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
+
+// Prevent horizontal scroll
+function preventHorizontalScroll() {
+  document.body.addEventListener('scroll', function(e) {
+    if (e.target.scrollWidth > e.target.clientWidth) {
+      e.preventDefault();
+    }
+  });
+  
+  // Force check for any horizontal overflow and fix container widths
+  const allElements = document.querySelectorAll('*');
+  allElements.forEach(el => {
+    if (el.offsetWidth > window.innerWidth) {
+      el.style.maxWidth = '100vw';
+      el.style.overflowX = 'hidden';
+    }
+  });
+}
