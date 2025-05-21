@@ -3,9 +3,11 @@
 document.addEventListener('DOMContentLoaded', () => {
   AOS.init({
     duration: 800,
-    easing: 'ease',
+    easing: 'ease-out',
     once: false,
-    mirror: false
+    mirror: false,
+    anchorPlacement: 'top-bottom',
+    offset: 120
   });
 
   // Initialize other functions
@@ -14,7 +16,59 @@ document.addEventListener('DOMContentLoaded', () => {
   setupCountdown();
   setupFaqToggle();
   setupPurchaseNotifications();
+  setupOrderBumpsInteraction();
+  setupScrollProgress();
+  setupHoverEffects();
 });
+
+// Setup interactive effects for order bumps
+function setupOrderBumpsInteraction() {
+  const bumpItems = document.querySelectorAll('.bump-item');
+  
+  bumpItems.forEach(item => {
+    item.addEventListener('mouseenter', () => {
+      // Add a slight glow effect
+      item.style.boxShadow = '0 15px 30px rgba(52, 152, 219, 0.3), 0 0 15px rgba(52, 152, 219, 0.2)';
+    });
+    
+    item.addEventListener('mouseleave', () => {
+      // Remove the glow effect
+      item.style.boxShadow = '';
+    });
+  });
+}
+
+// Add a scroll progress indicator
+function setupScrollProgress() {
+  // Create the progress bar element
+  const progressBar = document.createElement('div');
+  progressBar.className = 'scroll-progress-bar';
+  document.body.appendChild(progressBar);
+  
+  // Update progress bar width on scroll
+  window.addEventListener('scroll', () => {
+    const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (window.scrollY / windowHeight) * 100;
+    progressBar.style.width = `${scrolled}%`;
+  });
+}
+
+// Setup hover effects for purchase button and CTA buttons
+function setupHoverEffects() {
+  const ctaButtons = document.querySelectorAll('.cta-button, .purchase-button');
+  
+  ctaButtons.forEach(button => {
+    button.addEventListener('mouseenter', () => {
+      // Add a text shadow effect
+      button.style.textShadow = '0 0 10px rgba(255, 255, 255, 0.5)';
+    });
+    
+    button.addEventListener('mouseleave', () => {
+      // Remove the text shadow effect
+      button.style.textShadow = '';
+    });
+  });
+}
 
 // Fetch user location using ipinfo API
 function setupGeoLocation() {
