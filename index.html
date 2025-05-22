@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +7,9 @@
   <title>3,000+ Hot Secrets from a Mature Woman</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
   <!-- Meta Pixel Code -->
   <script>
   !function(f,b,e,v,n,t,s)
@@ -30,21 +30,43 @@
 </head>
 
 <body>
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress-bar"></div>
+
   <!-- Geo & Date Notification -->
   <div class="notification-bar" data-aos="fade-down">
-    <p>You and 14 other people near <span id="userCity">loading...</span> have been selected for an <span class="highlight-text">EXCLUSIVE</span> PROMOTION until <span id="currentDate">loading...</span></p>
+    <div class="notification-content">
+      <i class="fas fa-exclamation-triangle notification-icon"></i>
+      <p>You and <span class="live-counter">14</span> other people near <span id="userCity">loading...</span> have been selected for an <span class="highlight-text">EXCLUSIVE</span> PROMOTION until <span id="currentDate">loading...</span></p>
+      <i class="fas fa-fire notification-icon-end"></i>
+    </div>
   </div>
 
   <!-- Header Section -->
   <header class="header-section">
     <div class="container">
-      <h1 data-aos="fade-up">3,000+ Hot Secrets from a Mature Woman</h1>
-      <h2 data-aos="fade-up" data-aos-delay="200">Unlock the secret fantasies, bold desires, and untold confessions of a woman who's lived and loved without shame.</h2>
-      
-      <div class="ebook-mockup" data-aos="zoom-in" data-aos-delay="300">
-        <img src="https://compartiendoideas.club/img/mockup-principal.png" alt="3,000+ Hot Secrets Ebook">
+      <div class="header-badge" data-aos="zoom-in">
+        <i class="fas fa-star"></i>
+        <span>Limited Time Offer</span>
+        <i class="fas fa-star"></i>
       </div>
       
+      <h1 data-aos="fade-up">3,000+ Hot Secrets from a Mature Woman</h1>
+      <h2 data-aos="fade-up" data-aos-delay="200">Unlock the secret fantasies, bold desires, and untold confessions of a woman who's lived and loved without shame.</h2>
+
+      <div class="ebook-mockup-container" data-aos="zoom-in" data-aos-delay="300">
+        <div class="ebook-mockup">
+          <img src="https://compartiendoideas.club/img/mockup-principal.png" alt="3,000+ Hot Secrets Ebook">
+          <div class="ebook-glow"></div>
+        </div>
+        <div class="floating-elements">
+          <div class="floating-icon floating-icon-1">🔥</div>
+          <div class="floating-icon floating-icon-2">💋</div>
+          <div class="floating-icon floating-icon-3">⚡</div>
+          <div class="floating-icon floating-icon-4">💯</div>
+        </div>
+      </div>
+
       <div class="key-benefits" data-aos="fade-up" data-aos-delay="350">
         <div class="benefit-icon-item">
           <div class="benefit-icon">🔥</div>
@@ -63,31 +85,78 @@
           <p>100% Guaranteed</p>
         </div>
       </div>
-      
-      <a href="https://pay.hotmart.com/H99863889F?checkoutMode=10" class="cta-button pulse-animation" data-aos="fade-up" data-aos-delay="400">Get Instant Access – Only $7.90</a>
+
+      <div class="cta-container" data-aos="fade-up" data-aos-delay="400">
+        <div class="scarcity-indicator">
+          <i class="fas fa-exclamation-triangle"></i>
+          <span>Only <span class="remaining-copies">47</span> copies left at this price!</span>
+        </div>
+        
+        <a href="https://pay.hotmart.com/H99863889F?checkoutMode=10" class="cta-button pulse-animation main-cta">
+          <span class="cta-text">Get Instant Access – Only $7.90</span>
+          <div class="cta-subtext">🔒 Secure Payment • Instant Download</div>
+        </a>
+        
+        <div class="trust-signals">
+          <div class="trust-item">
+            <i class="fas fa-shield-alt"></i>
+            <span>SSL Encrypted</span>
+          </div>
+          <div class="trust-item">
+            <i class="fas fa-undo"></i>
+            <span>Money-Back Guarantee</span>
+          </div>
+          <div class="trust-item">
+            <i class="fas fa-download"></i>
+            <span>Instant Access</span>
+          </div>
+        </div>
+      </div>
     </div>
   </header>
 
   <!-- Countdown Timer Section -->
   <section class="countdown-section">
     <div class="container">
-      <h3 data-aos="fade-up">Special Offer Ends In:</h3>
-      <div class="countdown-timer" data-aos="fade-up" data-aos-delay="100">
-        <div class="countdown-item">
-          <span id="days">00</span>
-          <span class="countdown-label">Days</span>
+      <div class="countdown-wrapper">
+        <div class="countdown-header" data-aos="fade-up">
+          <i class="fas fa-clock"></i>
+          <h3>Special Offer Ends In:</h3>
+          <div class="urgency-indicator">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span>Don't Miss Out!</span>
+          </div>
         </div>
-        <div class="countdown-item">
-          <span id="hours">00</span>
-          <span class="countdown-label">Hours</span>
+        
+        <div class="countdown-timer" data-aos="fade-up" data-aos-delay="100">
+          <div class="countdown-item">
+            <span id="days">00</span>
+            <span class="countdown-label">Days</span>
+            <div class="countdown-progress"></div>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-item">
+            <span id="hours">00</span>
+            <span class="countdown-label">Hours</span>
+            <div class="countdown-progress"></div>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-item">
+            <span id="minutes">00</span>
+            <span class="countdown-label">Minutes</span>
+            <div class="countdown-progress"></div>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-item">
+            <span id="seconds">00</span>
+            <span class="countdown-label">Seconds</span>
+            <div class="countdown-progress"></div>
+          </div>
         </div>
-        <div class="countdown-item">
-          <span id="minutes">00</span>
-          <span class="countdown-label">Minutes</span>
-        </div>
-        <div class="countdown-item">
-          <span id="seconds">00</span>
-          <span class="countdown-label">Seconds</span>
+
+        <div class="countdown-warning" data-aos="fade-up" data-aos-delay="200">
+          <i class="fas fa-exclamation-circle"></i>
+          <span>Price returns to $29.90 when timer expires!</span>
         </div>
       </div>
     </div>
@@ -103,40 +172,77 @@
             <div class="audience-icon">👔</div>
             <h4>Single Men Ready to Date</h4>
             <p>Looking to attract high-quality women and make meaningful connections with mature women who know what they want.</p>
+            <div class="item-glow"></div>
           </div>
           <div class="target-audience-item">
             <div class="audience-icon">💍</div>
             <h4>Men in Relationships</h4>
             <p>Want to reignite the passion and bring back the excitement that was there at the beginning of your relationship.</p>
+            <div class="item-glow"></div>
           </div>
           <div class="target-audience-item">
             <div class="audience-icon">🔄</div>
             <h4>Recently Divorced</h4>
             <p>Ready to rebuild confidence and learn the modern secrets of attraction after being out of the dating scene.</p>
+            <div class="item-glow"></div>
           </div>
           <div class="target-audience-item">
             <div class="audience-icon">🧠</div>
             <h4>Men Seeking Knowledge</h4>
             <p>Eager to understand the female perspective and learn what mature women truly desire but rarely express.</p>
+            <div class="item-glow"></div>
           </div>
         </div>
       </div>
-      
+
       <div class="benefits" data-aos="fade-up">
         <h2 class="section-title">What You'll Discover Inside:</h2>
         <div class="benefits-intro">
           <p>This exclusive ebook contains the intimate secrets that only mature, experienced women know - knowledge that most men never get to access.</p>
         </div>
         <ul class="benefits-list">
-          <li data-aos="fade-left" data-aos-delay="100"><span class="benefit-icon">🔥</span> <strong>3,000+ real, uncensored secrets and desires</strong> that mature women have perfected over decades</li>
-          <li data-aos="fade-left" data-aos-delay="150"><span class="benefit-icon">👠</span> <strong>Bold experiences from a mature woman</strong> who knows exactly what she wants</li>
-          <li data-aos="fade-left" data-aos-delay="200"><span class="benefit-icon">💋</span> <strong>Forbidden fantasies and private confessions</strong> that women are too shy to tell you directly</li>
-          <li data-aos="fade-left" data-aos-delay="250"><span class="benefit-icon">🧠</span> <strong>Insights into the female mind</strong> that will surprise and excite you</li>
-          <li data-aos="fade-left" data-aos-delay="300"><span class="benefit-icon">👁️</span> <strong>Body language secrets</strong> to read her mind and know exactly what she wants</li>
-          <li data-aos="fade-left" data-aos-delay="350"><span class="benefit-icon">🌙</span> <strong>Bedroom techniques</strong> that will make her addicted to your touch</li>
-          <li data-aos="fade-left" data-aos-delay="400"><span class="benefit-icon">❤️</span> <strong>Psychological triggers</strong> that create deep emotional connections</li>
+          <li data-aos="fade-left" data-aos-delay="100">
+            <span class="benefit-icon">🔥</span> 
+            <strong>3,000+ real, uncensored secrets and desires</strong> that mature women have perfected over decades
+          </li>
+          <li data-aos="fade-left" data-aos-delay="150">
+            <span class="benefit-icon">👠</span> 
+            <strong>Bold experiences from a mature woman</strong> who knows exactly what she wants
+          </li>
+          <li data-aos="fade-left" data-aos-delay="200">
+            <span class="benefit-icon">💋</span> 
+            <strong>Forbidden fantasies and private confessions</strong> that women are too shy to tell you directly
+          </li>
+          <li data-aos="fade-left" data-aos-delay="250">
+            <span class="benefit-icon">🧠</span> 
+            <strong>Insights into the female mind</strong> that will surprise and excite you
+          </li>
+          <li data-aos="fade-left" data-aos-delay="300">
+            <span class="benefit-icon">👁️</span> 
+            <strong>Body language secrets</strong> to read her mind and know exactly what she wants
+          </li>
+          <li data-aos="fade-left" data-aos-delay="350">
+            <span class="benefit-icon">🌙</span> 
+            <strong>Bedroom techniques</strong> that will make her addicted to your touch
+          </li>
+          <li data-aos="fade-left" data-aos-delay="400">
+            <span class="benefit-icon">❤️</span> 
+            <strong>Psychological triggers</strong> that create deep emotional connections
+          </li>
         </ul>
-        
+
+        <!-- CTA Section -->
+        <div class="mid-cta-section" data-aos="zoom-in" data-aos-delay="450">
+          <div class="mid-cta-content">
+            <h3>Ready to Unlock These Secrets?</h3>
+            <p>Join thousands of men who have already transformed their love lives</p>
+            <a href="https://pay.hotmart.com/H99863889F?checkoutMode=10" class="cta-button pulse-animation">
+              <span class="cta-text">Get Instant Access Now</span>
+              <div class="cta-subtext">Only $7.90 • 100% Money-Back Guarantee</div>
+            </a>
+          </div>
+        </div>
+
         <div class="simple-testimonials" data-aos="fade-up">
           <h2 class="section-title">What Other Men Are Saying:</h2>
           <div class="testimonials">
@@ -237,11 +343,12 @@
       <div class="order-bumps">
         <h3 data-aos="fade-up">Complete Your Experience With These Exclusive Add-Ons:</h3>
         <p class="bumps-intro" data-aos="fade-up" data-aos-delay="100">These powerful resources complement the main ebook and are only available at checkout with special pricing:</p>
-        
+
         <div class="bumps-container">
           <div class="bump-item" data-aos="fade-up" data-aos-delay="100">
             <div class="bump-badge">BESTSELLER</div>
-            <img src="https://compartiendoideas.club/img/extra-stories.png" alt="Extra Stories Pack">
+            <div class="bump-icon">📖</div>
+            <img src="https://compartiendoideas.club/img/extra-stories.png" alt="Extra Stories Pack" class="bump-image">
             <h4>Extra Stories Pack</h4>
             <p>Real-life encounters told by mature women, revealing their most intimate moments and what made them unforgettable.</p>
             <ul class="bump-features">
@@ -250,10 +357,11 @@
               <li>Their secret thoughts</li>
             </ul>
           </div>
-          
+
           <div class="bump-item featured" data-aos="fade-up" data-aos-delay="200">
             <div class="bump-badge">MOST POPULAR</div>
-            <img src="https://compartiendoideas.club/img/mature-women-private-diary.png" alt="Mature Woman's Private Diary">
+            <div class="bump-icon">📝</div>
+            <img src="https://compartiendoideas.club/img/mature-women-private-diary.png" alt="Mature Woman's Private Diary" class="bump-image">
             <h4>Mature Woman's Private Diary</h4>
             <p>An uncensored look into the private thoughts, desires, and fantasies that mature women never share publicly.</p>
             <ul class="bump-features">
@@ -262,10 +370,11 @@
               <li>Fantasy scenarios</li>
             </ul>
           </div>
-          
+
           <div class="bump-item" data-aos="fade-up" data-aos-delay="300">
             <div class="bump-badge">ESSENTIAL</div>
-            <img src="https://compartiendoideas.club/img/seduction-triggers-handbook.png" alt="Seduction Triggers Handbook">
+            <div class="bump-icon">🧠</div>
+            <img src="https://compartiendoideas.club/img/seduction-triggers-handbook.png" alt="Seduction Triggers Handbook" class="bump-image">
             <h4>Seduction Triggers Handbook</h4>
             <p>Master the psychological triggers that instantly create attraction and desire in mature women.</p>
             <ul class="bump-features">
@@ -274,10 +383,11 @@
               <li>Emotional connection</li>
             </ul>
           </div>
-          
+
           <div class="bump-item" data-aos="fade-up" data-aos-delay="400">
             <div class="bump-badge">EXCLUSIVE</div>
-            <img src="https://compartiendoideas.club/img/mature-fantasy-vault.png" alt="Mature Fantasy Vault">
+            <div class="bump-icon">🔥</div>
+            <img src="https://compartiendoideas.club/img/mature-fantasy-vault.png" alt="Mature Fantasy Vault" class="bump-image">
             <h4>Mature Fantasy Vault</h4>
             <p>Explore the secret fantasies and scenarios that mature women crave but rarely admit to anyone.</p>
             <ul class="bump-features">
@@ -287,23 +397,23 @@
             </ul>
           </div>
         </div>
-      </div>
-      
-      <div class="risk-free-section" data-aos="fade-up">
-        <h2 class="section-title">Risk-Free Satisfaction</h2>
-        <p>We're confident you'll love every spicy secret inside. But if you're not thrilled, you can ask for a full refund within 7 days – no questions asked.</p>
-        <img src="https://img.icons8.com/color/96/000000/guarantee.png" alt="7-Day Guarantee" class="guarantee-image">
-      </div>
-      
-      <!-- Additional CTA after add-ons section -->
-      <div class="mid-page-cta" data-aos="fade-up">
-        <h2 class="section-title">Don't Miss This Limited-Time Offer!</h2>
-        <a href="https://pay.hotmart.com/H99863889F?checkoutMode=10" class="cta-button pulse-animation">🔥 Yes! I Want The Secrets Now – Only $7.90</a>
+
+        <div class="risk-free-section" data-aos="fade-up">
+          <h2 class="section-title">Risk-Free Satisfaction</h2>
+          <p>We're confident you'll love every spicy secret inside. But if you're not thrilled, you can ask for a full refund within 7 days – no questions asked.</p>
+          <img src="https://img.icons8.com/color/96/000000/guarantee.png" alt="7-Day Guarantee" class="guarantee-image">
+        </div>
+
+        <!-- Additional CTA after add-ons section -->
+        <div class="mid-page-cta" data-aos="fade-up">
+          <h2 class="section-title">Don't Miss This Limited-Time Offer!</h2>
+          <a href="https://pay.hotmart.com/H99863889F?checkoutMode=10" class="cta-button pulse-animation">🔥 Yes! I Want The Secrets Now – Only $7.90</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Purchase Section -->
+  <!-- Enhanced Purchase Section -->
   <section id="purchase" class="purchase-section">
     <div class="container">
       <div class="purchase-content">
@@ -312,12 +422,15 @@
             <div class="ebook-mockup-purchase">
               <img src="https://compartiendoideas.club/img/mockup-principal.png" alt="3,000+ Hot Secrets Ebook">
               <div class="shine-effect"></div>
+              <div class="glow-effect"></div>
             </div>
-            
+
             <div class="bonus-label">
+              <i class="fas fa-star"></i>
               <span>LIMITED TIME BONUS</span>
+              <i class="fas fa-star"></i>
             </div>
-            
+
             <div class="product-features">
               <div class="feature-item">
                 <i class="feature-icon">✓</i>
@@ -331,38 +444,61 @@
                 <i class="feature-icon">✓</i>
                 <p>Discreet Billing - Your Privacy Protected</p>
               </div>
+              <div class="feature-item">
+                <i class="feature-icon">✓</i>
+                <p>Lifetime Access - No Subscription Required</p>
+              </div>
+            </div>
+
+            <div class="social-proof-mini">
+              <div class="stars-rating">
+                <span>⭐⭐⭐⭐⭐</span>
+                <span class="rating-text">(4.9/5 based on 2,847 reviews)</span>
+              </div>
             </div>
           </div>
-          
+
           <div class="purchase-column-right" data-aos="fade-left">
             <h3 class="purchase-headline">Unlock 3,000+ Mature Women's Secrets Today</h3>
-            
+            <p class="purchase-subheadline">Transform your love life with insider knowledge that most men will never discover</p>
+
             <div class="price-box">
               <div class="old-price">Regular Price: <span>$37.90</span></div>
               <div class="current-price">Today's Special Price: <span>$7.90</span></div>
-              <div class="save-amount">You Save: <span>$30 (79% OFF)</span></div>
+              <div class="save-amount">You Save: <span>$30.00 (79% OFF)</span></div>
+              <div class="price-timer">
+                <i class="fas fa-clock"></i>
+                <span>Price increases in: </span>
+                <div class="final-countdown-display">
+                  <span class="time-unit"><span id="final-hours">00</span><small>h</small></span>
+                  <span class="time-separator">:</span>
+                  <span class="time-unit"><span id="final-minutes">00</span><small>m</small></span>
+                  <span class="time-separator">:</span>
+                  <span class="time-unit"><span id="final-seconds">00</span><small>s</small></span>
+                </div>
+              </div>
             </div>
-            
+
             <div class="limited-offer">
               <i class="offer-icon">⏰</i>
               <p>This special offer expires when the timer reaches zero!</p>
             </div>
-            
+
             <a href="https://pay.hotmart.com/H99863889F?checkoutMode=10" class="purchase-button pulse-animation">
               <span class="btn-text-main">SECURE YOUR COPY NOW</span>
               <span class="btn-text-sub"><i class="lock-icon">🔒</i> Instant Access • Only $7.90</span>
             </a>
-            
+
             <div class="payment-methods">
-              <p>Secure Payment:</p>
+              <p>Secure Payment Options:</p>
               <div class="payment-icons">
-                <span>Visa</span>
-                <span>Mastercard</span>
-                <span>PayPal</span>
-                <span>AmEx</span>
+                <div class="payment-icon"><i class="fab fa-cc-visa"></i> Visa</div>
+                <div class="payment-icon"><i class="fab fa-cc-mastercard"></i> Mastercard</div>
+                <div class="payment-icon"><i class="fab fa-cc-paypal"></i> PayPal</div>
+                <div class="payment-icon"><i class="fab fa-cc-amex"></i> AmEx</div>
               </div>
             </div>
-            
+
             <div class="guarantee-box">
               <div class="guarantee-icon">
                 <img src="https://img.icons8.com/color/48/000000/guarantee.png" alt="Guarantee">
@@ -372,130 +508,191 @@
                 <p>If you're not completely satisfied with the results within 7 days, simply request a refund and get your money back - no questions asked.</p>
               </div>
             </div>
+
+            <div class="security-badges">
+              <div class="security-item">
+                <i class="fas fa-shield-alt"></i>
+                <span>SSL Secured</span>
+              </div>
+              <div class="security-item">
+                <i class="fas fa-lock"></i>
+                <span>Safe & Private</span>
+              </div>
+              <div class="security-item">
+                <i class="fas fa-credit-card"></i>
+                <span>Secure Checkout</span>
+              </div>
+            </div>
           </div>
         </div>
-        
+
         <div class="urgency-bar" data-aos="fade-up">
           <i class="urgency-icon">🔥</i>
-          <p><strong>87 men</strong> have purchased this guide in the last 24 hours. <strong>Limited copies available!</strong></p>
+          <p><strong><span class="live-sales-count">87</span> men</strong> have purchased this guide in the last 24 hours. <strong>Limited copies available!</strong></p>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- FAQ Section -->
-  <section class="faq-section">
-    <div class="container">
-      <h3 data-aos="fade-up">Frequently Asked Questions</h3>
-      
-      <div class="faq-container">
-        <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
-          <div class="faq-question">
-            <h4>What is included in the ebook?</h4>
-            <span class="faq-toggle">+</span>
+      <!-- Final CTA Section -->
+      <div class="final-cta-section" data-aos="zoom-in">
+        <div class="final-cta-content">
+          <h2>Don't Let This Opportunity Slip Away</h2>
+          <p>Thousands of men have already transformed their love lives with these secrets. Will you be next?</p>
+          
+          <div class="final-countdown">
+            <div class="final-countdown-text">Offer expires in:</div>
+            <div class="final-timer">
+              <span id="final-hours">00</span>:<span id="final-minutes">00</span>:<span id="final-seconds">00</span>
+            </div>
           </div>
-          <div class="faq-answer">
-            <p>The ebook includes over 3,000 secrets, tips, and techniques carefully collected from mature women's experiences. You'll get detailed explanations, stories, and practical advice that you can start applying immediately to transform your love life.</p>
-          </div>
-        </div>
-        
-        <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
-          <div class="faq-question">
-            <h4>How will I receive the ebook after purchase?</h4>
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>After completing your purchase, you'll receive an immediate email with a secure download link to access your ebook. The file is in PDF format and can be read on any device including smartphones, tablets, and computers.</p>
-          </div>
-        </div>
-        
-        <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
-          <div class="faq-question">
-            <h4>Is there a money-back guarantee?</h4>
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>Yes, we offer a full 7-day money-back guarantee. If you're not completely satisfied with the content, simply contact our support team within 7 days of purchase, and we'll process your refund with no questions asked.</p>
-          </div>
-        </div>
-        
-        <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
-          <div class="faq-question">
-            <h4>Can I buy the add-ons later if I change my mind?</h4>
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>The exclusive add-ons are only available at the time of purchase at special discounted rates. While you may be able to purchase them separately later, they will not be available at the same promotional price you see today.</p>
-          </div>
-        </div>
-        
-        <div class="faq-item" data-aos="fade-up" data-aos-delay="450">
-          <div class="faq-question">
-            <h4>Is this ebook for me if I'm in a relationship?</h4>
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>Absolutely. Many readers use it to reignite passion and understand their partners on a deeper level. The secrets revealed work for both single men and those in committed relationships looking to enhance their connection.</p>
-          </div>
-        </div>
-        
-        <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
-          <div class="faq-question">
-            <h4>How discreet is the billing and delivery process?</h4>
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>We understand privacy concerns. Your purchase will appear on your statement with a generic business name, and all communication is sent securely. Your download link is private and protected, ensuring complete discretion.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Final CTA Section -->
-  <section class="final-cta-section">
-    <div class="container">
-      <h2 class="section-title" data-aos="fade-up">Are You Ready to Discover Her Secrets?</h2>
-      
-      <div class="final-countdown" data-aos="fade-up">
-        <p>Special offer ends in:</p>
-        <div class="mini-countdown">
-          <span id="final-hours">00</span>:<span id="final-minutes">00</span>:<span id="final-seconds">00</span>
-        </div>
-      </div>
-      
-      <a href="https://pay.hotmart.com/H99863889F?checkoutMode=10" class="cta-button pulse-animation" data-aos="fade-up">Unlock Now – Only $7.90</a>
-      
-      <div class="secure-checkout" data-aos="fade-up">
-        <img src="https://www.alliedpay.com/wp-content/uploads/payment-security.png" alt="Hotmart Secure Checkout" class="hotmart-badge">
-        <p><i class="lock-icon">🔒</i> Secure Payment • 100% Discreet Billing</p>
-      </div>
-    </div>
-  </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>&copy; 2024 All Rights Reserved | 3,000+ Hot Secrets from a Mature Woman</p>
+          <a href="https://pay.hotmart.com/H99863889F?checkoutMode=10" class="cta-button pulse-animation final-cta">
+            <span class="cta-text">Get Your Copy Now - $7.90</span>
+            <div class="cta-subtext">✅ Instant Download • 100% Money-Back Guarantee</div>
+          </a>
+
+          <div class="guarantee-badges">
+            <div class="guarantee-item">
+              <i class="fas fa-shield-alt"></i>
+              <span>30-Day Money Back Guarantee</span>
+            </div>
+            <div class="guarantee-item">
+              <i class="fas fa-download"></i>
+              <span>Instant Digital Download</span>
+            </div>
+            <div class="guarantee-item">
+              <i class="fas fa-lock"></i>
+              <span>100% Secure & Private</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="faq-section" data-aos="fade-up">
+        <h3>Frequently Asked Questions</h3>
+        <div class="faq-container">
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Is this content appropriate for all ages?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>This ebook is intended for mature adults (18+) only. The content contains explicit material and adult themes that are not suitable for minors.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>How do I access the ebook after purchase?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>After completing your purchase, you'll receive an instant download link via email. You can access the ebook immediately on any device - computer, tablet, or smartphone.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Is my purchase completely private and discrete?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Absolutely. Your purchase is 100% private and discrete. The transaction will appear as "HOTMART" on your statement, and all downloads are secure and confidential.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>What if I'm not satisfied with the content?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>We offer a full 30-day money-back guarantee. If you're not completely satisfied with the ebook, simply contact our support team for a full refund, no questions asked.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </footer>
+  </section>
 
   <!-- Purchase Notification Popup -->
-  <div class="purchase-popup" id="purchasePopup">
-    <div class="popup-icon">🔥</div>
+  <div id="purchasePopup" class="purchase-popup">
     <div class="popup-content">
-      <p><span id="buyerName">John</span> from <span id="buyerCity">New York</span> <span id="purchaseMessage">just purchased the ebook!</span></p>
-      <div class="popup-timer"></div>
+      <div class="popup-icon">🔥</div>
+      <div class="popup-text">
+        <strong id="buyerName">John</strong> from <span id="buyerCity">New York</span>
+        <div id="purchaseMessage">just purchased the ebook!</div>
+      </div>
+      <div class="popup-time">2 minutes ago</div>
     </div>
   </div>
 
-  <!-- Mobile Sticky CTA Button -->
-  <div class="mobile-sticky-cta">
+  <!-- Mobile Sticky CTA -->
+  <div id="mobile-cta" class="mobile-sticky-cta">
     <a href="https://pay.hotmart.com/H99863889F?checkoutMode=10" class="mobile-cta-button">
-      <span>Get Access Now - $7.90</span>
+      <span class="mobile-cta-text">Get Access Now - $7.90</span>
+      <i class="fas fa-arrow-right"></i>
     </a>
   </div>
 
+  <!-- Purchase Notification Popup -->
+  <div id="purchasePopup" class="purchase-popup">
+    <div class="popup-header">
+      <i class="fas fa-check-circle"></i>
+      <span>Just purchased!</span>
+    </div>
+    <div class="popup-content">
+      <strong id="buyerName">Michael</strong> from <strong id="buyerCity">Chicago</strong> 
+      <span id="purchaseMessage">just purchased the ebook!</span>
+    </div>
+    <div class="popup-time">
+      <i class="fas fa-clock"></i>
+      <span>2 minutes ago</span>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer-section">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-main">
+          <h4>3,000+ Hot Secrets from a Mature Woman</h4>
+          <p>Transform your love life with exclusive insights that most men never discover.</p>
+        </div>
+        
+        <div class="footer-links">
+          <div class="footer-column">
+            <h5>Support</h5>
+            <ul>
+              <li><a href="mailto:support@example.com">Customer Support</a></li>
+              <li><a href="#">Refund Policy</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-column">
+            <h5>Legal</h5>
+            <ul>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">DMCA</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="copyright">
+          <p>&copy; 2025 Hot Secrets Guide. All rights reserved.</p>
+        </div>
+        <div class="disclaimer">
+          <p>This site is not part of the Facebook website or Facebook Inc. Additionally, this site is NOT endorsed by Facebook in any way.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="script.js"></script>
 </body>
