@@ -169,23 +169,43 @@ p {
 /* CTA Button */
 .cta-button, .purchase-button {
   display: inline-block;
-  padding: 1rem 2rem;
-  background: linear-gradient(135deg, #d63031, #b71540);
+  padding: 1.2rem 2.5rem;
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
   color: white;
-  font-size: 1.3rem;
-  font-weight: 600;
+  font-size: 1.4rem;
+  font-weight: 700;
   border-radius: 50px;
   border: none;
   cursor: pointer;
-  box-shadow: 0 5px 15px rgba(183, 21, 64, 0.4);
+  box-shadow: 0 8px 20px rgba(231, 76, 60, 0.4);
   transition: all 0.3s ease;
   text-transform: uppercase;
-  margin: 1rem 0;
+  margin: 1.5rem 0;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
 }
 
 .cta-button:hover, .purchase-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(183, 21, 64, 0.5);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(231, 76, 60, 0.5);
+  background: linear-gradient(135deg, #c0392b, #e74c3c);
+}
+
+.pulse-animation {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(231, 76, 60, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(231, 76, 60, 0);
+  }
 }
 
 /* Countdown Section */
@@ -777,6 +797,183 @@ p {
   margin-right: 0.5rem;
 }
 
+
+/* New Styles for Enhanced Sections */
+.section-title {
+  font-size: 2.2rem;
+  color: #f39c12;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  position: relative;
+}
+
+.section-title:after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #e74c3c, #f39c12);
+}
+
+/* Enhanced Benefits List */
+.benefits-list {
+  list-style: none;
+  padding: 0.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.benefits-list li {
+  margin-bottom: 1.2rem;
+  padding-left: 3rem;
+  position: relative;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  display: flex;
+  align-items: center;
+}
+
+.benefits-list .benefit-icon {
+  position: absolute;
+  left: 0;
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+/* Simple Testimonials */
+.simple-testimonials {
+  margin: 3rem 0;
+  padding: 2rem 0;
+  background: rgba(0,0,0,0.2);
+  border-radius: 10px;
+}
+
+.testimonials {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.testimonial {
+  background: rgba(255,255,255,0.05);
+  border-radius: 10px;
+  padding: 1.5rem;
+  width: 300px;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: all 0.3s ease;
+}
+
+.testimonial:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  border-color: rgba(243, 156, 18, 0.2);
+}
+
+.testimonial p {
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.testimonial p:before,
+.testimonial p:after {
+  content: '"';
+  font-size: 1.8rem;
+  color: #f39c12;
+  font-family: 'Playfair Display', serif;
+}
+
+.testimonial strong {
+  color: #3498db;
+  display: block;
+  text-align: right;
+}
+
+/* Risk Free Section */
+.risk-free-section {
+  text-align: center;
+  margin: 4rem 0;
+  padding: 2rem;
+  background: rgba(46, 204, 113, 0.1);
+  border-radius: 10px;
+  position: relative;
+}
+
+.guarantee-image {
+  width: 80px;
+  margin: 1rem 0;
+}
+
+/* Final CTA Section */
+.final-cta-section {
+  background: linear-gradient(135deg, #16213e, #0f3460);
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+}
+
+.final-cta-section:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #e74c3c, #f39c12, #2ecc71, #3498db);
+}
+
+.final-countdown {
+  margin: 1.5rem 0;
+}
+
+.mini-countdown {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #f39c12;
+  margin: 0.5rem 0;
+  letter-spacing: 2px;
+}
+
+.secure-checkout {
+  margin-top: 2rem;
+}
+
+.hotmart-badge {
+  max-width: 200px;
+  margin-bottom: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .testimonials {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .testimonial {
+    width: 90%;
+    max-width: 400px;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .mini-countdown {
+    font-size: 1.4rem;
+  }
+}
+
 .purchase-button {
   display: flex;
   flex-direction: column;
@@ -1321,5 +1518,70 @@ footer {
   
   .btn-text-sub {
     font-size: 0.8rem;
+  }
+}
+
+/* New styles for additional elements */
+.mid-page-cta {
+  margin: 3rem 0;
+  padding: 2rem;
+  background: rgba(231, 76, 60, 0.1);
+  border-radius: 15px;
+  text-align: center;
+  border: 2px dashed rgba(231, 76, 60, 0.3);
+}
+
+.mid-page-cta .section-title {
+  margin-bottom: 1.5rem;
+}
+
+/* Mobile sticky CTA */
+.mobile-sticky-cta {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(15, 15, 22, 0.95);
+  padding: 10px;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  backdrop-filter: blur(5px);
+}
+
+.mobile-cta-button {
+  display: block;
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: white;
+  padding: 12px;
+  text-align: center;
+  border-radius: 30px;
+  font-weight: 700;
+  box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
+  text-decoration: none;
+  animation: pulse-red 2s infinite;
+}
+
+.mobile-cta-button span {
+  font-size: 1.1rem;
+}
+
+/* Rating stars for testimonials */
+.rating {
+  color: #f39c12;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 2px;
+}
+
+/* Media query for mobile sticky button */
+@media (max-width: 768px) {
+  .mobile-sticky-cta {
+    display: block;
+  }
+  
+  /* Add padding to footer to account for sticky button */
+  footer {
+    padding-bottom: 70px;
   }
 }
