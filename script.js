@@ -94,10 +94,27 @@ function setupCurrentDate() {
   document.getElementById('currentDate').textContent = formattedDate;
 }
 
-// Set up countdown timer - 3 days from now
+// Set up countdown timer - persisted by session/IP
 function setupCountdown() {
-  const endDate = new Date();
-  endDate.setDate(endDate.getDate() + 3);
+  // Try to get saved end date from localStorage
+  let endDate = new Date();
+  const savedEndDate = localStorage.getItem('countdownEndDate');
+  
+  if (savedEndDate) {
+    // Use the saved end date if it exists
+    endDate = new Date(parseInt(savedEndDate));
+    
+    // If the saved date is in the past, create a new one
+    if (endDate <= new Date()) {
+      endDate = new Date();
+      endDate.setDate(endDate.getDate() + 3);
+      localStorage.setItem('countdownEndDate', endDate.getTime().toString());
+    }
+  } else {
+    // Create a new end date (3 days from now) if none exists
+    endDate.setDate(endDate.getDate() + 3);
+    localStorage.setItem('countdownEndDate', endDate.getTime().toString());
+  }
   
   function updateTimer() {
     const now = new Date();
@@ -108,6 +125,11 @@ function setupCountdown() {
       document.getElementById('hours').textContent = '00';
       document.getElementById('minutes').textContent = '00';
       document.getElementById('seconds').textContent = '00';
+      
+      // Reset the timer when it reaches zero
+      endDate = new Date();
+      endDate.setDate(endDate.getDate() + 3);
+      localStorage.setItem('countdownEndDate', endDate.getTime().toString());
       return;
     }
     
@@ -120,6 +142,13 @@ function setupCountdown() {
     document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
     document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
     document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+    
+    // Also update the final countdown
+    if (document.getElementById('final-hours')) {
+      document.getElementById('final-hours').textContent = hours.toString().padStart(2, '0');
+      document.getElementById('final-minutes').textContent = minutes.toString().padStart(2, '0');
+      document.getElementById('final-seconds').textContent = seconds.toString().padStart(2, '0');
+    }
   }
   
   // Initial update
@@ -129,7 +158,85 @@ function setupCountdown() {
   setInterval(updateTimer, 1000);
 }
 
+// Initialize all functions when document is ready
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize AOS animation library
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true
+  });
+  
+  // Initialize all components
+  setupSlider();
+  setupCountdown(); // Now handles both countdowns
+  setupFaqToggle();
+  setupPurchaseNotifications();
+  showUserLocation();
+});
+
+function setupSlider() {
+  const slides = document.querySelectorAll('.testimonial-slide');
+  const dots = document.querySelectorAll('.dot');
+  let currentSlide = 0;
+  
+  function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+    
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
+    currentSlide = index;
+  }
+  
+  // Event listeners for dots
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => showSlide(index));
+  });
+  
+  // Auto advance slides
+  setInterval(() => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }, 5000);
+}
+
+function showUserLocation() {
+  // Try to get user's location from IP
+  fetch('https://ipapi.co/json/')
+    .then(response => response.json())
+    .then(data => {
+      const cityElement = document.getElementById('userCity');
+      if (cityElement && data.city) {
+        cityElement.textContent = data.city;
+      } else {
+        cityElement.textContent = 'your area';
+      }
+    })
+    .catch(() => {
+      const cityElement = document.getElementById('userCity');
+      if (cityElement) {
+        cityElement.textContent = 'your area';
+      }
+    });
+  
+  // Set current date
+  const dateElement = document.getElementById('currentDate');
+  if (dateElement) {
+    const date = new Date();
+    dateElement.textContent = date.toLocaleDateString('en-US', {
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric'
+    });
+  }
+}
+
 // Setup FAQ accordion
+setupFaqToggle();
+
+// Final countdown is now handled by the main countdown timer function
+// This ensures both timers are in sync
 function setupFaqToggle() {
   const faqItems = document.querySelectorAll('.faq-item');
   
